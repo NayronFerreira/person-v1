@@ -1,5 +1,6 @@
 package br.com.microservicessb.PersonV1.service;
 
+import br.com.microservicessb.PersonV1.Exceptions.UnsuportedMathOperationException;
 import br.com.microservicessb.PersonV1.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class OperationService {
 
     public Person findById (String number1) throws RuntimeException{
         if (utilsStringNumber.isNumeric(number1)==false){
-            throw new UnsupportedOperationException ("Coloque um valor numérico!");
+            throw new UnsuportedMathOperationException("Coloque um valor numérico!");
         }
         else{
             Person person = new Person(1,"Anna", "May", "Ferreira", "Barueri -São Paulo - Brasil");
